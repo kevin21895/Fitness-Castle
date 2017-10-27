@@ -1,0 +1,96 @@
+  <html>
+  <head>
+  <style type="text/css">
+    .xyz .abc {
+	display:none;
+	} 
+	.xyz input[value="y"]:checked ~ .abc{
+	display:block;
+	}
+ </style>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Training information</title>
+        <link rel="stylesheet" href="mystyle2.css">
+        <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+
+      <form action="records.php" method="post" id="1" oninput="load.value=parseInt(dur.value)*parseInt(intensity.value)">
+      
+        
+        
+        <fieldset>
+          <center><h1>Your training information</h1></center>
+          <b>Date of session:</b>
+          <input type="date" id="date" name="date" placeholder="Date">
+          
+          <b>Time of Session:</b>
+          <input type="time" id="time" name="time" placeholder="time">
+		  
+		  <b>Duration:</b>
+          <input type="text" id="dur" name="dur" placeholder="Duration">
+		  <b>Training Type:</b>
+          <select id="tstat" name="ttype">
+          
+            <option value="Running" >Running</option>
+            <option value="Cycling" >Cycling</option>
+            <option value="Swimming" >Swimming</option>
+            <option value="Boxing" >Boxing</option>
+			<option value="Yoga" >Yoga</option>
+			<option value="Gyming" selected>Gyming</option>
+			</select>
+         
+        
+        
+       
+		
+                <b>Training Status:</b>
+        <select id="tstat" name="tstat">
+          
+            <option value="rest">Rest Day</option>
+            <option value="fullt">Full Training</option>
+            <option value="modifiedt">Modified training</option>
+            <option value="othert">Other Training</option>
+			<option value="sick">Sick</option>
+			<option value="injured">Injured</option>
+			</select>
+        	
+        
+		  
+          <b>Intensity:</b><br>
+          0<input type="range" id="intensity" value="intensity" name="intensity" min="0" max="10">10<br><br>
+		  <b>Session Load</b>
+		  <input <output type="text" name="load" ></output>>
+		  <div class="xyz">
+		  		 <b>Injured?:</b><br>
+		 <input type="radio" id="y" value="y" name="injury">Yes<br>
+          <input type="radio" id="n" value="n" name="injury">No<br>
+		  <div class="abc">
+		      <b>Injured area:</b>
+        <select id="injuredarea" name="injuredarea">
+          
+            <option value="head">HEAD</option>
+            <option value="torso">TORSO</option>
+            <option value="hands">HANDS</option>
+            <option value="legs">LEGS</option>
+            <option value="arms">ARMS</option>
+            <option value="thighs">THIGHS</option>
+            <option value="back">BACK</option>
+          
+        </select>
+          </div>
+		  </div>
+		  <br><b>Comments:</b><br>
+		  <input type="text"><br>
+		  
+
+			  </fieldset>
+		 <button type="submit">Submit</button>
+		 
+
+      </form>
+      
+    </body>
+</html>

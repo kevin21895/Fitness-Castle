@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>signup form</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="shortcut icon" href=http://www.freshdesignweb.com/wp-content/themes/fv28/images/icon.ico />
+    <link rel="stylesheet" type="text/css" href="form.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="abc.css" media="all" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+</head>
+
+
+
+   <script type="text/javascript">
+		
+         function showLocation(position) {
+		 
+		 
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+			document.contactform.lat.value= latitude;
+			document.contactform.lon.value= longitude;	
+
+            
+         }
+
+         function errorHandler(err) {
+            if(err.code == 1) {
+               alert("Error: Access is denied!");
+            }
+            
+            else if( err.code == 2) {
+               alert("Error: Position is unavailable!");
+            }
+         }
+			
+         function getLocation(){
+
+            if(navigator.geolocation){
+               // timeout at 60000 milliseconds (60 seconds)
+               var options = {timeout:60000};
+               navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
+            }
+            
+            else{
+               alert("Sorry, browser does not support geolocation!");
+            }
+         }
+			
+      </script>
+
+<body onload="getLocation();">
+
+ <div class="container">
+      <div class="freshdesignweb-top"></div><div class="clr"></div>
+			<br><br> 
+      <div  class="form">
+    		<form id="contactform" name="contactform" method="POST" enctype="multipart/form-data" action="back.php"> 
+
+    			<p class="contact"><label for="name">Name</label></p> 
+    			<input id="name" name="name" placeholder="First and last name" required="" tabindex="1" type="text"> 
+    			 
+    			<p class="contact"><label for="email">Email</label></p> 
+    			<input id="email" name="email" placeholder="example@domain.com" required="" type="email">
+ 
+
+                <p class="contact"><label for="username">Create a username</label></p> 
+    			<input id="username" name="username" placeholder="username" required="" tabindex="2" type="text"> 
+    			 
+                <p class="contact"><label for="password">Create a password</label></p> 
+    			<input type="password" id="password" name="password" required=""> 
+                <p class="contact"><label for="repassword">Confirm your password</label></p> 
+    			<input type="password" id="repassword" name="repassword" required=""> 
+<p class="contact"><label for="weight">Current Weight</label></p> 
+            <input id="weight" name="w" required="" type="number"> <br>
+<p class="contact"><label for="weight">Height</label></p> 
+            <input id="height" name="h" placeholder="in(cm)"  required="" type="number"> <br>
+        <p class="contact"><label for="diseases">Diseases</label></p> 
+    			<input id="name" name="disease" placeholder="ailments" required="" tabindex="1" type="text"> <br>
+               <fieldset>
+                 <input type="date" name="birthday">
+              </fieldset>
+  
+            <select class="select-style gender" name="gender">
+            <option value="select">Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          
+            </select><br><br>
+            
+            <p class="contact"><label for="phone">Mobile phone</label></p> 
+            <input id="phone" name="phone" placeholder="phone number" required="" type="text"> <br>
+<b>Upload Profile picture</b>
+<input type="file" name="profilepicture" id="profilepicture"><br>
+
+
+<input name="lat" id="lat" value=" " style="display:none" ></input>
+<input id="lon" name="lon"  value=" " style="display:none" ></input>
+<input name="cecky" id="checky" value="1" type="checkbox" /><label class="terms"><b>I accept the terms of use</b></label><br>
+            
+<input class="buttom" name="submit" id="submit" tabindex="5" value="Sign me up!" type="submit"> 	 
+   </form> 
+  </div>       
+
+</body>
+</html>
